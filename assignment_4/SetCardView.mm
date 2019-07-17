@@ -87,6 +87,18 @@ NS_ASSUME_NONNULL_BEGIN
         [rectBezierPath stroke];
     }
     
+    UIFont *cornerForn = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    cornerForn = [cornerForn fontWithSize:cornerForn.pointSize * (self.bounds.size.height / 180.0)];
+    
+    NSAttributedString *cornerText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",self.shape] attributes:@{ NSFontAttributeName: cornerForn}];
+    
+    CGRect textBouns = CGRectMake(self.bounds.size.width*0.1, self.bounds.size.height*0.5, self.bounds.size.width*0.6, self.bounds.size.height*0.6);
+    textBouns.size = [cornerText size];
+    
+    
+    [cornerText drawInRect:textBouns];
+    
+    
     return;
     
    

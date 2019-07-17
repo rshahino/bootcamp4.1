@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
         [self drawCorners];
         return;
     }
-    if(self.faceUp)
+    if(self.card.isChosen)
     {
         [self drawFace];
         

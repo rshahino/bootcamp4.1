@@ -23,8 +23,7 @@
 
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
     CardView *view = sender.view;
-    view.faceUp = !view.faceUp;
-    
+   
     //[self beforeButton];
     
     int cardIndex = [self.viewCards indexOfObject:sender.view];
@@ -32,7 +31,7 @@
     NSString * description = [self.game chooseCardAtIndex_new:cardIndex];
    Card *card = [self.game CardAtIndex:cardIndex];
     
-    if(card.isMatch)
+    if(card.isMatch || card.isChosen)
     {
         view.faceUp = YES;
     }
@@ -99,7 +98,7 @@
 
 -(CardMatchingGame*) game
 {
-    if( !_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.CardButtons count] usingDeck:[self createDeck]];
+    if( !_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.viewCards count] usingDeck:[self createDeck]];
     return _game;
     
 }
