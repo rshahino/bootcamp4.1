@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Deck.h"
 #import "CardMatchingGame.h"
+#import "CardView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MatchGameViewController : UIViewController
 
+@property (strong, nonatomic) IBOutletCollection(CardView) NSArray *viewCards;
 
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong,nonatomic) Deck* deck;
@@ -20,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) beforeButton;
 -(Deck*)createDeck;
 -(NSString *) titleForCard:(Card *) card;
+
 
 
 @end

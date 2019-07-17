@@ -8,20 +8,31 @@
 
 #import "PlayingGameViewController.h"
 #import "PlayingCardDeck.h"
+#import "PlayingCardView.h"
 @interface PlayingGameViewController ()
+//@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *viewCards;
+
 
 @end
 
 @implementation PlayingGameViewController
 
+
+
 - (IBAction)switch:(id)sender {
     self.game.matchMode = !self.game.matchMode ;
 }
+
 
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.game.matchMode = NO;///only set
     // Do any additional setup after loading the view.
+    for (PlayingCardView *view in self.viewCards)
+    {
+        view.suilt = @"H";
+        view.rank = 9;
+    }
 }
 
 -(Deck*)createDeck
@@ -39,6 +50,9 @@
 {
     //disable button
 }
+
+
+
 
 /*
 #pragma mark - Navigation
